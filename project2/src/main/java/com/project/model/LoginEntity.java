@@ -10,30 +10,30 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table (name="login")
+@Table (name="USERS")
 public class LoginEntity implements Serializable{
 	
 	@Id
-	private String username;
+	private String s_username;
 	
     @NotEmpty
-    @Column(name="password", nullable=false)
-    private String password;
+    @Column(name="s_pword", nullable=false)
+    private String s_pword;
 
  
 	public String getUsername() {
-		return username;
+		return s_username;
 	}
  
 	public void setUsername(String username) {
-		this.username = username;
+		this.s_username = username;
 	}
  
 	public String getPassword() {
-		return password;
+		return s_pword;
 	}
  
 	public void setPassword(String password) {
-		this.password = password;
+		this.s_pword = password;
 	}
 }
