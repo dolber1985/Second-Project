@@ -1,1 +1,30 @@
 /target/
+<<<<<<< HEAD
+=======
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### macOS ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+>>>>>>> 76540c9743f991d3343e1ea5b85cddfaa9c9cbc2
