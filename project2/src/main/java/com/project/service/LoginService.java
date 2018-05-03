@@ -1,15 +1,24 @@
+/*
+ ============================================================================
+ Name        : LoginService.java
+ Author      : Alessio Onori
+ Version     : 1.0
+ Copyright   : Your copyright notice
+ Description : Dao dello User su base del template di Piergiorgio
+ ============================================================================
+ */
+
 package com.project.service;
 
-import com.project.model.LoginEntity;
-import com.project.util.UserNotLoggedException;
-
-import java.io.UnsupportedEncodingException;
-import java.util.Date;
 import java.util.Optional;
+
+import com.project.model.User;
 
 public interface LoginService {
 	
-	Optional<LoginEntity> getUserFromDbAndVerifyPassword(String name, String password) throws UserNotLoggedException;
+//	public boolean authenticateUser(User loginBean);
+	
+	Optional<User> getUserFromDbAndVerifyPassword(String id, String password)throws Exception;
+    //-> userDao.findById(id), encryptionUtils.decrypt(pwd) -> UserNotLoggedException
 
-	String createJwt(String subject, String name, String permission, Date datenow) throws UnsupportedEncodingException;
 }
