@@ -16,32 +16,32 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-	@Autowired
+    @Autowired
     private LoginService loginService;
-    
-	@RequestMapping(value="loginController", method = RequestMethod.POST)
-	public ModelAndView userCheck(HttpServletRequest request) {
-		String name=request.getParameter("username");
-		String pwd=request.getParameter("password");
 
-		LoginEntity loginBean = new LoginEntity();
-		loginBean.setUsername(name);
-		loginBean.setPassword(pwd);
-		 
-		
-		boolean result = loginService.authenticateUser(loginBean);
-		
-		ModelAndView model = new ModelAndView();
-		
-		if (result){
-			model.addObject("user", loginBean);
-	    	model.setViewName("success");
-			
-		}else{
-			model.setViewName("error");
-		}
-		
-    	return model;
+    @RequestMapping(value="loginController", method = RequestMethod.POST)
+    public ModelAndView userCheck(HttpServletRequest request) {
+        String name=request.getParameter("username");
+        String pwd=request.getParameter("password");
 
-	}
+        LoginEntity loginBean = new LoginEntity();
+        loginBean.setUsername(name);
+        loginBean.setPassword(pwd);
+
+
+        boolean result = loginService.authenticateUser(loginBean);
+
+        ModelAndView model = new ModelAndView();
+
+        if (result){
+            model.addObject("user", loginBean);
+            model.setViewName("map");
+
+        }else{
+            model.setViewName("error");
+        }
+
+        return model;
+
+    }
 }
