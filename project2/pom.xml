@@ -1,5 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xmlns:mvc="http://www.springframework.org/schema/mvc"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.project</groupId>
 	<artifactId>project2</artifactId>
@@ -7,7 +8,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Project2 Webapp</name>
 	<url>http://maven.apache.org</url>
-
 	<properties>
 		<spring.version>4.3.0.RELEASE</spring.version>
 		<hibernate.version>4.3.10.Final</hibernate.version>
@@ -23,6 +23,13 @@
 		</dependency>
 		
 		<!-- Spring dependencies -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
