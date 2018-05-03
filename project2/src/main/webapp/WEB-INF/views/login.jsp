@@ -37,7 +37,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="header-top">
         <div class="container">
             <div class="header-top">
-                <a href="index.jsp"> <i class="glyphicon glyphicon-home" style="font-size:20px;color:white"></i>  </a>
+                <a href="indexPage"> <i class="glyphicon glyphicon-home" style="font-size:20px;color:white"></i>  </a>
 
             </div>
 
@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <h2> Accedi </h2>
 
-                <form action="LoginController" method="post">
+                <form action="loginController" method="post">
                     <br>
                     <h4 style="color:red;"><%
                         if(null!=request.getAttribute("errorMessage"))

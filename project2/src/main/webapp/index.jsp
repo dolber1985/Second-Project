@@ -63,10 +63,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="ca-r">
 					<div class="cart box_1">
-						<a href="index.jsp">
+						<a href="indexPage">
 							    <div class="total">
 								<span class="simpleCart_total"></span> </div>
-								<img src="images/cart.png" alt=""/></h3>
+								<img src="/resources/images/cart.png" alt=""/></h3>
 						</a>
 						<p><a href="javascript:;" class="simpleCart_empty">Carrello Vuoto</a></p>
 
@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<h1><a href="index.jsp"> Super Relax </a></h1>
+				<h1><a href="indexPage"> Super Relax </a></h1>
 			</div>
 			<div class=" h_menu4">
 				<ul class="memenu skyblue">
@@ -108,8 +108,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
 					%>
 
-					<li><a class="color4" href="login.jsp">Accedi</a></li>
-					<li><a class="color4" href="sign_up.jsp">Registrati</a></li>
+					<li><a class="color4" href="loginPage">Accedi</a></li>
+					<li><a class="color4" href="signUpPage">Registrati</a></li>
 
 					<%
 					}
