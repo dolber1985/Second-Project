@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table (name="login")
+@Table (name="user")
 public class LoginEntity implements Serializable{
 	
 	@Id

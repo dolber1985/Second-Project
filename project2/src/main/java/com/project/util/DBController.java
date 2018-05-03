@@ -11,9 +11,9 @@ public class DBController {
 
     //  Database credentials
 
-    protected static final String DB_URL = "jdbc:mysql://localhost:3306/nome_database";
-    protected static final String USER = "root";
-    protected static final String PASS = "admin";
+    protected static final String DB_URL = "jdbc:mysql://localhost:3306/unimarina";
+    protected static final String USER = "QDJ";
+    protected static final String PASS = "Bellapete_1";
     protected static Connection conn = null;
     protected static PreparedStatement stmt = null;
     protected static ResultSet rs = null;

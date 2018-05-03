@@ -1,8 +1,11 @@
 package com.project.dao;
 
 import com.project.model.LoginEntity;
+import com.project.model.UserEntity;
 
 public interface LoginDao {
 	//public boolean authenticateUser(LoginEntity loginBean);
-	public LoginEntity getLoginById(String username);
+	public UserEntity getLoginById(String username);
+
+	public UserEntity getLoginByIstitutionalEmail( String istEmail);
 }
