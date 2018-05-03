@@ -89,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <br> <br>
                 Non sei ancora registrato? <br>
 
-                <form action="sign_up.jsp">
+                <form action="signUpPage">
                     <input type="submit" value="Registrati">
                 </form>
 

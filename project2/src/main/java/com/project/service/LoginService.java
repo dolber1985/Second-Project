@@ -4,6 +4,7 @@ import com.project.model.LoginEntity;
 
 public interface LoginService {
 	
-	public boolean authenticateUser(LoginEntity loginBean);
+	public String authenticateUser(LoginEntity loginBean);
+	public String registrationUserService(LoginEntity signUpBean);
 
 }

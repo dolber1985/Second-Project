@@ -1,9 +1,18 @@
 package com.project.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.project.model.LoginEntity;
 import com.project.service.LoginService;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,19 +38,89 @@ public class LoginController {
 		loginBean.setPassword(pwd);
 		 
 		
-		boolean result = loginService.authenticateUser(loginBean);
+		String result = loginService.authenticateUser(loginBean);
 		
+		HttpSession session=request.getSession();
 		ModelAndView model = new ModelAndView();
 		
-		if (result){
-			model.addObject("user", loginBean);
-	    	model.setViewName("success");
+		if (result.equals("success")){
 			
-		}else{
-			model.setViewName("error");
+			
+			//model.addObject("user", loginBean);
+			session.setAttribute("user", loginBean.getUsername());
+	    	model.setViewName("redirect:/index.jsp");
+			
+		}else if (result.equals("errorDB")){
+			session.invalidate();
+            request.setAttribute("errorMessage", "Errore di connessione. Riprova più tardi");
+			model.setViewName("login");
+		}else {
+			session.invalidate();
+            request.setAttribute("errorMessage", "Nome utente e/o password non validi");
+			model.setViewName("login");
 		}
 		
     	return model;
 
 	}
+		
+	@RequestMapping(value="logoutController")
+    protected ModelAndView logout(HttpServletRequest request) {  
+
+        HttpSession session=request.getSession();  
+        session.invalidate();  
+        ModelAndView model = new ModelAndView();
+        model.setViewName("redirect:/index.jsp");
+        return model;
+    }  
+    ////////////////////////////////////
+	
+	@RequestMapping(value="signUpController", method = RequestMethod.POST)
+	protected ModelAndView registerUser(HttpServletRequest request) throws ServletException, IOException {
+ 
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		String email	= request.getParameter("email");
+		String name		= request.getParameter("name");
+		String surname	= request.getParameter("surname");
+		String born_date	= request.getParameter("born_date");
+		String born_place	= request.getParameter("born_place");
+		
+		LoginEntity signUpBean = new LoginEntity();
+		
+		signUpBean.setUsername(username);
+		signUpBean.setPassword(password);
+		signUpBean.setEmail(email);
+		signUpBean.setName(name);
+		signUpBean.setSurname(surname);
+		signUpBean.setBorn_date(born_date);
+		signUpBean.setBorn_place(born_place);
+		
+		String result = loginService.registrationUserService(signUpBean); //todo
+		
+		ModelAndView model = new ModelAndView();
+		
+		System.out.println("valore ritornato: " +result);
+			
+		if (result.equals("success")) {
+			
+			//open session for user
+			HttpSession session=request.getSession();  
+			session.setAttribute("user", signUpBean.getUsername());
+	    	model.setViewName("redirect:/index.jsp");
+			//
+			
+		} else if(result.equals("errorDB")){
+			//session.invalidate();
+            request.setAttribute("errorMessage", "Errore di connessione. Riprova più tardi");
+            model.setViewName("sign_up");
+		}
+		
+		else {
+			request.setAttribute("errorMessage", "Errore generale (si, un errore non definito come quelli di Windows10");
+            model.setViewName("sign_up");
+		}
+		return model;
+	}
+	
 }

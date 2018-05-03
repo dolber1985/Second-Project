@@ -1,5 +1,6 @@
 package com.project.dao;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -20,20 +21,19 @@ public class LoginDaoImpl implements LoginDao {
 		return entityManager.find(LoginEntity.class, username);
 	 }
 
-/*		 public boolean authenticateUser(LoginEntity loginBean)
-		 {
+	 public String registerUser(LoginEntity signUpBean){
+		 String query = "insert into USERS (u_username,u_pword,u_email,u_name,u_surname,u_born_date,u_born_place) values (?,?,?,?,?,?,?);";
 		 
-			 String userName = loginBean.getUsername(); //Keeping user entered values in temporary variables.
-			String password = loginBean.getPassword();
-			
-			//insert database access
-			
-			if(userName.equals("admin") && password.equals("password"))
-			   {
-			      return true; ////If the user entered values are already present in database, which means user has already registered so I will return SUCCESS message.
-			   }else{
-				   return false;
-			   }
-		 }
-*/
+		 entityManager.createNativeQuery(query).setParameter(1, signUpBean.getUsername())
+		 		.setParameter(2, signUpBean.getPassword())
+		 		.setParameter(3, signUpBean.getEmail())
+		 		.setParameter(4, signUpBean.getName())
+		 		.setParameter(5, signUpBean.getSurname())
+		 		.setParameter(6, signUpBean.getBorn_date())
+		 		.setParameter(7, signUpBean.getBorn_place())
+		 		.executeUpdate();		 
+		 
+		 return "success";
+	 }
+	 
 }
