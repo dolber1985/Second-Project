@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class=" register">
 
 
-		<form action="SignUpController" method="post">
+		<form action="signUpController" method="post">
 			<div class="col-md-6 register-top-grid">
 				<h3>Informazioni personali</h3>
 				<div>

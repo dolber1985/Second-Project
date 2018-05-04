@@ -6,20 +6,45 @@ import org.springframework.stereotype.Service;
 import com.project.dao.LoginDao;
 import com.project.model.LoginEntity;
 
+
 @Service
 public class LoginServiceImpl implements LoginService {
 	
 	@Autowired
 	LoginDao loginDao;
 	
-	 public boolean authenticateUser(LoginEntity loginEntity){
-		 LoginEntity login = loginDao.getLoginById(loginEntity.getUsername());
+	 public String authenticateUser(LoginEntity loginEntity){
+		 try{
+			 LoginEntity login = loginDao.getLoginById(loginEntity.getUsername());
+		 
 		 if(login!=null){
 			 if(login.getPassword().equals(loginEntity.getPassword()) && login.getUsername().equals(loginEntity.getUsername())){
-				 return true;
+				 return "success";
 			 }
 		 }
-		 return false;
+		 }catch (Exception e){
+			 System.out.println("Connection failed!!\n" + e);
+			 return "errorDB";
+		 }
+		 finally{
+			 
+		 }
+		 return "failure";
 	 }
 
+	 public String registrationUserService(LoginEntity signUpBean) {
+		 
+		 try{
+			String result = loginDao.registerUser(signUpBean);
+			if (result.equals("success")){
+				return "success";
+			}
+		 }catch (Exception e){
+			 System.out.println("Connection failed!!\n" + e);
+			 return "errorDB";
+		 }finally{
+			 
+		 }
+		return "failure";			
+		}
 }
