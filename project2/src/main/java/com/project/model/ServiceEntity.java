@@ -2,10 +2,7 @@ package com.project.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -13,7 +10,8 @@ import java.io.Serializable;
 public class ServiceEntity implements Serializable {
 
     @Id
-    private String sr_name;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long sr_serviceID;
 
     @NotEmpty
     @Column(name="sr_type", nullable=false)
@@ -40,8 +38,8 @@ public class ServiceEntity implements Serializable {
     private String sr_image;
 
     @NotEmpty
-    @Column(name="sr_serviceID", nullable=false)
-    private String sr_serviceID;
+    @Column(name="sr_name", nullable=false)
+    private String sr_name;
 
 
 
