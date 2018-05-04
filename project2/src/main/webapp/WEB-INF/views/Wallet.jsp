@@ -1,16 +1,18 @@
-<%@ page import="org.project.dao.EthereumDao" %>
+<%@ page import="com.project.dao.EthereumDao" %>
 <%@ page contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>Massaggi e saune</title>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<c:url value="resources/css/bootstrap.css" />" rel="stylesheet" type="text/css" media="all" >
 
     <!-- Custom Theme files -->
     <!--theme-style-->
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<c:url value="resources/css/style.css" />" rel="stylesheet" type="text/css" media="all" >
     <!--//theme-style-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,8 +22,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
     <!-- start menu -->
-    <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="css/wallet.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<c:url value="resources/css/memenu.css" />" rel="stylesheet" type="text/css" media="all" >
+    <link href="<c:url value="resources/css/wallet.css" />" rel="stylesheet" type="text/css" media="all" >
 
 </head>
 <body>
@@ -82,14 +84,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a class="color1" href="#">Prodotti</a>
 
                     </li>
-                    <li class="grid"><a class="color2" href="ServiceController">Servizi</a>
+                    <li class="grid"><a class="color2" href="serviceController">Servizi</a>
 
                     </li>
 
 
-                    <li class="grid"><a class="color2" href="LogoutController" onclick="if (!confirm('Sei sicuro di voler uscire? ')) return false" action="">Logout</a>
+                    <li class="grid"><a class="color2" href="logoutController" onclick="if (!confirm('Sei sicuro di voler uscire? ')) return false" action="">Logout</a>
 					
-					<li class="grid"><a class="color2" href="EthereumController">Wallet</a>
+					<li class="grid"><a class="color2" href="ethereumController">Wallet</a>
                 </ul>
             </div>
 
