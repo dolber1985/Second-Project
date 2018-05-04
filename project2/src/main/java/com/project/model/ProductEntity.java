@@ -1,13 +1,13 @@
 package com.project.model;
 
-import org.hibernate.annotations.Table;
 import org.hibernate.validator.constraints.NotEmpty;
+import java.io.Serializable;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PRODUCTS")
-public class ProductEntity implements serializable {
+@Table (name="PRODUCTS")
+public class ProductEntity implements Serializable {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -27,13 +27,13 @@ public class ProductEntity implements serializable {
 
     @NotEmpty
     @Column(name="image", nullable=false)
-    private String image
+    private String image;
 
     @NotEmpty
     @Column(name="price", nullable=false)
     private int price;
 
-    public int getProduct_id() {
+    public long getProduct_id() {
         return product_id;
     }
 

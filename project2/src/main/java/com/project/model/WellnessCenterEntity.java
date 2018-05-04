@@ -1,12 +1,13 @@
 package com.project.model;
 
+import java.io.Serializable;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CENTERs")
-public class WellnessCenterEntity implements serializable{
+@Table (name = "CENTERS")
+public class WellnessCenterEntity implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

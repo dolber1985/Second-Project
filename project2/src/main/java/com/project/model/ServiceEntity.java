@@ -99,11 +99,11 @@ public class ServiceEntity implements Serializable {
         this.sr_time = sr_time;
     }
 
-    public String getSr_serviceID() {
+    public long getSr_serviceID() {
         return sr_serviceID;
     }
 
-    public void setSr_serviceID(String sr_serviceID) {
+    public void setSr_serviceID(long sr_serviceID) {
         this.sr_serviceID = sr_serviceID;
     }
 }

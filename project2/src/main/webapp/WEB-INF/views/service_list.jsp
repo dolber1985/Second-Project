@@ -110,23 +110,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <%
 						}
 					%>
-                    <li class="grid"><a class="color2" href="ServiceController">Servizi</a> </li>
+                    <li class="grid"><a class="color2" href="serviceController">Servizi</a> </li>
 
                     <%
 
 						if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
 					%>
 
-                    <li><a class="color4" href="login.jsp">Accedi</a></li>
-                    <li><a class="color4" href="sign_up.jsp">Registrati</a></li>
+                    <li><a class="color4" href="loginPage">Accedi</a></li>
+                    <li><a class="color4" href="signUpPage">Registrati</a></li>
 
                         <%}
 
 					else {
 					%>
-                    <li><a class="color4" href="LogoutController" onclick="if (!confirm('Sei sicuro di voler uscire? ')) return false"
+                    <li><a class="color4" href="logoutController" onclick="if (!confirm('Sei sicuro di voler uscire? ')) return false"
                            >Logout</a></li>
-					<li><a class="color8" href="EthereumController">Wallet</a></li>
+					<li><a class="color8" href="ethereumController">Wallet</a></li>
                     <%
 						}
 					%>
