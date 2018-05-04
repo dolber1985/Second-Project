@@ -21,18 +21,15 @@ public class ServiceController {
     ServiceService serviceService;
 
 
-    @RequestMapping(value="ServiceController", method = RequestMethod.GET)
+    @RequestMapping(value="serviceController", method = RequestMethod.GET)
     public ModelAndView getServices(HttpServletRequest request, HttpServletResponse response) {
 
       //  ServiceEntity serviceBean = new ServiceEntity();
         ModelAndView model = new ModelAndView();
 
-
             List<ServiceEntity> serviceList = serviceService.getServiceService();
             if(serviceList != null){
                 model.addObject("services", serviceList); // Will be available as ${products} in JSP
-
-
             }
             else {
                 request.setAttribute("errorMessage", "Errore connessione database. Riprova più tardi");
