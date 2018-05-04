@@ -2,8 +2,11 @@ package com.project.dao;
 
 import com.project.model.ServiceEntity;
 import com.project.service.ServiceService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -12,15 +15,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 @Repository
 @Transactional
 public class ServiceDaoImpl implements ServiceDao {
 
+
     @PersistenceContext
     public EntityManager entityManager;
 
-    private static final String SELECT_ALL = "select * from SERVICES order by sr_name";
-    private static final String SEARCH_BY_NAME = "select * from SERVICES where lower(sr_name) like ? ";
+
+
+    //private static final String SELECT_ALL = "select * from SERVICES order by sr_name";
+    //private static final String SEARCH_BY_NAME = "select * from SERVICES where lower(sr_name) like ? ";
+
+    private static final String SEARCH_BY_KEYWORD = "select * from SERVICES where sr_name LIKE ?";
+    private static final String SELECT_ALL = "select * from SERVICES";
+
 
     public List<ServiceEntity> printServices()  {
 
@@ -58,6 +70,25 @@ public class ServiceDaoImpl implements ServiceDao {
 
         return serviceList;*/
     }
+
+    public List<ServiceEntity> searchKeyWord(String keyword) {
+
+        // List<ServiceEntity> serviceList = new ArrayList<>();
+        // ServiceEntity serviceEntity = new ServiceEntity();
+        String query = "select c from ServiceEntity c where c.sr_name LIKE :prova";
+        String key = "%" + keyword + "%";
+
+        // Query selectByKeyWord = entityManager.createNativeQuery(query).setParameter(1, '%' + keyword + '%');
+        //Query selectByKeyWord = entityManager.createQuery(query).setParameter("prova", key);
+
+        System.out.println("Esecuzione query");
+        // serviceList = selectByKeyWord.getResultList();
+
+        return entityManager.createQuery(query).setParameter("prova", key).getResultList();
+        }
+
+
+
 /*
     public static List<ServiceService> searchService(String searchService) throws Exception {
         List<ServiceService> serviceList = new ArrayList<>();*/
@@ -106,4 +137,6 @@ public class ServiceDaoImpl implements ServiceDao {
 		}*/
 
   /*  }*/
+
+
 }

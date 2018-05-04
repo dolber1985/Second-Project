@@ -19,4 +19,18 @@ public class ServiceServiceImpl implements ServiceService {
         return result;
 
     }
+
+    public List<ServiceEntity> searchKeyWordService(String keyword) {
+
+
+            List<ServiceEntity> result = null;
+            try {
+                result = serviceDao.searchKeyWord(keyword);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return result;
+        }
+
+
 }

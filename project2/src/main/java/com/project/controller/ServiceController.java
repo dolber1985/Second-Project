@@ -21,21 +21,20 @@ public class ServiceController {
     ServiceService serviceService;
 
 
-    @RequestMapping(value="serviceController", method = RequestMethod.GET)
-    public ModelAndView getServices(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(value = "serviceController", method = RequestMethod.GET)
+    public ModelAndView getServices(HttpServletRequest request) {
 
-      //  ServiceEntity serviceBean = new ServiceEntity();
+        //  ServiceEntity serviceBean = new ServiceEntity();
         ModelAndView model = new ModelAndView();
 
-            List<ServiceEntity> serviceList = serviceService.getServiceService();
-            if(serviceList != null){
-                model.addObject("services", serviceList); // Will be available as ${products} in JSP
-            }
-            else {
-                request.setAttribute("errorMessage", "Errore connessione database. Riprova più tardi");
-            }
-          //  request.getRequestDispatcher("/service_list.jsp").forward(request, response);
-            model.setViewName("service_list");
+        List<ServiceEntity> serviceList = serviceService.getServiceService();
+        if (serviceList != null) {
+            model.addObject("services", serviceList); // Will be available as ${products} in JSP
+        } else {
+            request.setAttribute("errorMessage", "Errore connessione database. Riprova più tardi");
+        }
+        //  request.getRequestDispatcher("/service_list.jsp").forward(request, response);
+        model.setViewName("service_list");
 
 
 
@@ -60,9 +59,33 @@ public class ServiceController {
             model.setViewName("error");
         }*/
 
-       return model;
+        return model;
 
     }
+
+    @RequestMapping(value = "searchController", method = RequestMethod.POST)
+
+    public ModelAndView searchServices(HttpServletRequest request) {
+
+        ModelAndView model = new ModelAndView();
+
+        String keyword = request.getParameter("keyword");
+
+        List<ServiceEntity> serviceList = serviceService.searchKeyWordService(keyword);
+
+
+        if (serviceList != null) {
+            model.addObject("services", serviceList);
+
+        } else {
+            request.setAttribute("errorMessage", "Errore connessione database. Riprova più tardi");
+
+        }
+        model.setViewName("service_list");
+        return model;
+
+    }
+
 
 
 /*

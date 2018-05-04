@@ -30,9 +30,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="resources/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
     <link href="resources/css/services.css" rel="stylesheet" type="text/css" media="all" />
 
-    <!-- <script type="text/javascript" src="js/memenu.js"></script>
+    <script type="text/javascript" src="resources/js/memenu.js"></script>
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
-    <script src="js/simpleCart.min.js"> </script> -->
+    <script src="resources/js/simpleCart.min.js"> </script>
 </head>
 <body>
 
@@ -55,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
-                        <form action="SearchController" method="post">
+                        <form action="searchController" method="post">
                             <input class="sb-search-input" name="keyword" placeholder="Inserisci il nome del servizio che stai cercando..." type="search"  id="search">
                             <input class="sb-search-submit" type="submit" value="Cerca">
                             <span class="sb-icon-search"> </span>
@@ -65,8 +65,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <!-- search-scripts -->
 
-                <script src="js/classie.js"></script>
-                <script src="js/uisearch.js"></script>
+                <script src="resources/js/classie.js"></script>
+                <script src="resources/js/uisearch.js"></script>
                 <script>
                     new UISearch( document.getElementById( 'sb-search' ) );
                 </script>
@@ -78,8 +78,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="cart box_1">
                         <a href="index.jsp">
                             <div class="total">
-                                <span class="simpleCart_total"></span> </div>
-                            <img src="images/cart.png" alt=""/>
+                                <!-- <span class="simpleCart_total"></span> --> </div>
+                            <img src="resources/images/cart.png" alt=""/>
                         </a>
                         <p><a href="javascript:" class="simpleCart_empty">Carrello Vuoto</a></p>
 
