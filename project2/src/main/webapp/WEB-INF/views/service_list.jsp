@@ -192,7 +192,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <p> <c:out value="${service.sr_description}" /></p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Acquista</button>
+                                            <button onclick="myFunction()">Acquista</button>
+
+                                            <script>
+                                                function myFunction() {
+                                                    location.href = "http://localhost:8080/loginPage";
+                                                }
+                                            </script>
+
+
 
                                         </div>
                                     </div>
