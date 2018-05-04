@@ -196,7 +196,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             <script>
                                                 function myFunction() {
-                                                    location.href = "http://localhost:8080/loginPage";
+                                                    location.href = "loginPage";
                                                 }
                                             </script>
 
