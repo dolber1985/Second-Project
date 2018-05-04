@@ -22,14 +22,9 @@
   </servlet-mapping>
   
   <welcome-file-list>
-<<<<<<< HEAD
 	<welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
-=======
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
->>>>>>> 19eec789dad57cb0d7e680f257491fb4b6d3f046
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>

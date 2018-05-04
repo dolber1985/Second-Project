@@ -104,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-<img src="/resources/images/ethereum.png" alt="" class="ethereum"/>
+<img src="resources/images/ethereum.png" alt="" class="ethereum"/>
 
 <h3 class="text-center" id="address"> <div class="wallets">Indirizzo</div> 0xE08aa75AAE695c4622Cd430FbeBF4B97689d4Ee3</h3>
 <h3 class="text-center" id="balance"> <div class="wallets">Saldo</div> 
