@@ -9,6 +9,7 @@ import org.springframework.web.context.annotation.SessionScope;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @SessionScope
@@ -20,7 +21,7 @@ public class UserEntity implements Serializable {
         super();
     }
 
-    public UserEntity(long id_user, String istitutional_email, String personal_email, String password, String name, String surname, Date date_of_birth, String type) {
+    public UserEntity(long id_user, String istitutional_email, String personal_email, String password, String name, String surname, Date date_of_birth, String type, List<ExamEntity> exam_list) {
         this.id_user = id_user;
         this.istitutional_email = istitutional_email;
         this.personal_email = personal_email;
@@ -29,6 +30,7 @@ public class UserEntity implements Serializable {
         this.surname = surname;
         this.date_of_birth = date_of_birth;
         this.type = type;
+        this.exam_list = exam_list;
     }
 
     @Id
@@ -38,11 +40,9 @@ public class UserEntity implements Serializable {
 
     @NotEmpty
     @NotBlank
-    @Email
     @Column(name="istitutional_email", nullable = false)
     private String istitutional_email;
 
-    @Email
     @Column(name="personal_email")
     private String personal_email;
 
@@ -65,6 +65,11 @@ public class UserEntity implements Serializable {
     @NotBlank
     @Column(name="type")
     private String type;
+
+    @ManyToMany
+    private List<ExamEntity> exam_list;
+
+
 
     public long getId_user() {
         return id_user;
@@ -128,5 +133,13 @@ public class UserEntity implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public List<ExamEntity> getExam_list() {
+        return exam_list;
+    }
+
+    public void setExam_list(List<ExamEntity> exam_list) {
+        this.exam_list = exam_list;
     }
 }

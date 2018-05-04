@@ -1,6 +1,8 @@
 package com.project.model;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 import javax.persistence.*;
 
 
@@ -14,11 +16,12 @@ public class ExamEntity implements Serializable {
         super();
     }
 
-    public ExamEntity(long id_exam, String name, String description, int credits) {
+    public ExamEntity(long id_exam, String name, String description, int credits,List<UserEntity> user_list) {
         this.id_exam = id_exam;
         this.name = name;
         this.description = description;
         this.credits = credits;
+        this.user_list = user_list;
     }
 
     @Id
@@ -36,6 +39,8 @@ public class ExamEntity implements Serializable {
     @Column(name="credits")
     private int credits;
 
+    @ManyToMany(mappedBy = "exam_set")
+    private List<UserEntity> user_list;
 
     public long getId_exam() {
         return id_exam;
@@ -67,5 +72,13 @@ public class ExamEntity implements Serializable {
 
     public void setCredits(int credits) {
         this.credits = credits;
+    }
+
+    public List<UserEntity> getUser_list() {
+        return user_list;
+    }
+
+    public void setUser_list(List<UserEntity> user_list) {
+        this.user_list = user_list;
     }
 }
