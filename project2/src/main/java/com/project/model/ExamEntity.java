@@ -1,10 +1,7 @@
 package com.project.model;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -25,6 +22,7 @@ public class ExamEntity implements Serializable {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotEmpty
     @Column(name="id_exam", nullable=false)
     private long id_exam;

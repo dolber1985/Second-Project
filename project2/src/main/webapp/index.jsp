@@ -156,19 +156,19 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                           <h3 class="text-center">Registrati</h3>
                           <div class="modal-body"> 
                               <label for="register_name">Nome</label>
-                              <input id="register_name" class="form-control" type="text" placeholder="" required maxlength="32" pattern="[A-Za-z]*$">
+                              <input id="register_name" class="form-control" name="name" type="text" placeholder="" required maxlength="32" pattern="[A-Za-z]*$">
 
                               <label for="register_cognome">Cognome</label>
-                              <input id="register_cognome" class="form-control" type="text" placeholder="" required maxlength="32" pattern="[A-Za-z]*$">
+                              <input id="register_cognome" class="form-control" name="surname" type="text" placeholder="" required maxlength="32" pattern="[A-Za-z]*$">
 
                               <label for="register_data_di_nascita">Data di nascita</label>
-                              <input id="register_data_di_nascita" class="form-control" type="date" placeholder="" required>
+                              <input id="register_data_di_nascita" class="form-control" name="dateOfBirth" type="date" placeholder="" required>
 
 							  <label for="register_email_personale">Email personale</label>
-                              <input id="register_email_personale" class="form-control" type="password" placeholder="" require maxlength="28">
+                              <input id="register_email_personale" class="form-control" name="personalEmail" type="email" placeholder="" require maxlength="28">
 
                               <label for="register_password">Password</label> 
-                              <input id="register_password" class="form-control" type="password" placeholder="" required maxlength="8">
+                              <input id="register_password" class="form-control" name="password" type="password" placeholder="" required maxlength="8">
                           </div>
                           <div class="modal-footer">
                               <div>
@@ -221,7 +221,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
       <div class="container-fluid">
         <div class="row"> 
           <div class="col-md-4 bg-starship">
-            <div class="about-content-box wow fadeInUp" data-wow-delay="0.3s">
+              <div class="about-content-box wow fadeInUp" data-wow-delay="0.3s">
               <i class="fa fa-user-plus"></i>
               <h5>Effettua la registazione</h5>
               <p class="desc">Inserisci i tuoi dati personali, una email e una password</p>

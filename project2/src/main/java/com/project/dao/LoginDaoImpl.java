@@ -8,23 +8,28 @@ import com.project.model.UserEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.model.LoginEntity;
-
 @Repository
 @Transactional
 public class LoginDaoImpl implements LoginDao {
 
 	@PersistenceContext
 	 public EntityManager entityManager;
-	
-	 public UserEntity getLoginById(String username) {
 
-	 	return entityManager.find(UserEntity.class, username);
-	 }
+	private final static String LOGIN_STUDENT = "SELECT u FROM UserEntity u WHERE u.istitutional_email=?";
+
 
 	public UserEntity getLoginByIstitutionalEmail(String istEmail) {
 
-		return entityManager.find(UserEntity.class, istEmail);
+		UserEntity u = null;
+		try {
+			if(entityManager.createQuery(LOGIN_STUDENT).setParameter(1, istEmail).getSingleResult()!=null)
+			{
+				u = (UserEntity) entityManager.createQuery(LOGIN_STUDENT).setParameter(1, istEmail).getSingleResult();
+			}
+		}catch(Exception e){
+			System.out.println("Utente non trovato");
+		}
+		return u;
 	}
 
 }

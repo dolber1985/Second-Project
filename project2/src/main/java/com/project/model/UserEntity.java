@@ -1,15 +1,18 @@
 package com.project.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
+@SessionScope
+@Component
 @Table(name="user")
 public class UserEntity implements Serializable {
 
@@ -28,18 +31,23 @@ public class UserEntity implements Serializable {
         this.type = type;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_user", nullable=false)
     private long id_user;
 
-    @Id
     @NotEmpty
-    @Column(name="istitutional_email")
+    @NotBlank
+    @Email
+    @Column(name="istitutional_email", nullable = false)
     private String istitutional_email;
 
+    @Email
     @Column(name="personal_email")
     private String personal_email;
 
     @NotEmpty
+    @NotBlank
     @Column(name="password", nullable=false)
     private String password;
 
@@ -49,9 +57,12 @@ public class UserEntity implements Serializable {
     @Column(name="surname")
     private String surname;
 
+    @Temporal(TemporalType.DATE)
     @Column(name="date_of_birth")
     private Date date_of_birth;
 
+    @NotEmpty
+    @NotBlank
     @Column(name="type")
     private String type;
 

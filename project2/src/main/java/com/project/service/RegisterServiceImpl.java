@@ -15,18 +15,30 @@ public class RegisterServiceImpl implements RegisterService {
     RegisterDao registerDao;
 
     public boolean checkUser(UserEntity newUser) {
-        List checkedUser = registerDao.getCheckedUser(newUser);
+        Long checkedUser = registerDao.getCheckedUser(newUser);
 
-        if(checkedUser.equals(null)){
-            return true;
+        if(checkedUser>0){
+            return false;
         }
-        return false;
+        return true;
     }
 
     public UserEntity insertNewUser(UserEntity newUser) {
 
-        registerDao.insertNewUser(newUser);
+        String mail = getNewIstitutionalEmail(newUser);
+        newUser.setIstitutional_email(mail);
 
-        return null;
+
+        return registerDao.insertNewUser(newUser);
     }
+
+    private String getNewIstitutionalEmail(UserEntity newUser){
+
+        String n = newUser.getName().substring(0,1);
+        String s = newUser.getSurname();
+        String email = ""+n+s+"@studenti.unimarina.it";
+
+        return email;
+    }
+
 }

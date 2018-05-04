@@ -1,10 +1,7 @@
 package com.project.controller;
 
-import javax.jws.soap.SOAPBinding;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
-import com.project.model.LoginEntity;
 import com.project.model.UserEntity;
 import com.project.service.LoginService;
 
@@ -21,24 +18,26 @@ public class LoginController{
 
 	@Autowired
     private LoginService loginService;
-    
+
+	@Autowired
+	private UserEntity userEntity;
+
 	@RequestMapping(value="/loginController", method = RequestMethod.POST)
 	public ModelAndView userCheck(HttpServletRequest request) {
 		String email = request.getParameter("username");
 		String pwd = request.getParameter("password");
 
 
-		UserEntity userEntity = new UserEntity();
 		userEntity.setIstitutional_email(email);
 		userEntity.setPassword(pwd);
 
-		UserEntity result = loginService.authenticateUserByEmail(userEntity);
+		UserEntity user = loginService.authenticateUserByEmail(userEntity);
 		
 		ModelAndView model = new ModelAndView();
 
-		if (!result.getIstitutional_email().equals(null)){
+		if (!user.equals(null)){
 
-			model.addObject("user", result);
+			model.addObject("user", user);
 	    	model.setViewName("success");
 			
 		}else{
