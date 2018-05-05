@@ -41,8 +41,7 @@ public class LoginEntity implements Serializable{
     @Column(name="u_born_place", nullable=false)
     private String u_born_place;
     
-    @NotEmpty
-    @Column(name="u_wallet_address", nullable=false)
+    @Column(name="u_wallet_address")
     private String u_wallet_address;
     
  

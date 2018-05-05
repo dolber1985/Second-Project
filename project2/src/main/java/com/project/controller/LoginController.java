@@ -108,6 +108,10 @@ public class LoginController {
 			//session.invalidate();
             request.setAttribute("errorMessage", "Errore di connessione. Riprova più tardi");
             model.setViewName("sign_up");
+		} else if(result.equals("errorSQL")){
+			//session.invalidate();
+            request.setAttribute("errorMessage", "Errore. Nome utente già in uso");
+            model.setViewName("sign_up");
 		}
 		
 		else {
