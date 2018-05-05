@@ -4,6 +4,7 @@ package com.project.controller;
 import java.math.BigDecimal;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,13 +24,17 @@ public class EthereumController{
 	@RequestMapping(value="ethereumController")
     protected ModelAndView checkEthValue(HttpServletRequest request) {
 
-        	wei = ethereumService.getEthValue();
-            System.out.println(wei);
-
-            ModelAndView model = new ModelAndView();
-            request.setAttribute("wei", wei); // Will be available as ${wei} in JSP
-            model.setViewName("Wallet");
-            return model;
+		HttpSession session=request.getSession();
+    	String userId= (String) session.getAttribute("user");
+    	String walletAddress = ethereumService.getWalletAddress(userId);
+	
+		wei = ethereumService.getEthValue(walletAddress);
+        System.out.println(wei);
+        
+        ModelAndView model = new ModelAndView();
+        request.setAttribute("wei", wei); // Will be available as ${wei} in JSP
+        model.setViewName("Wallet");
+        return model;
     }
 
 }

@@ -41,6 +41,10 @@ public class LoginEntity implements Serializable{
     @Column(name="u_born_place", nullable=false)
     private String u_born_place;
     
+    @NotEmpty
+    @Column(name="u_wallet_address", nullable=false)
+    private String u_wallet_address;
+    
  
 	public String getUsername() {
 		return u_username;
@@ -96,6 +100,14 @@ public class LoginEntity implements Serializable{
 
 	public void setBorn_place(String u_born_place) {
 		this.u_born_place = u_born_place;
+	}
+	
+	public String getWalletAddress() {
+		return u_wallet_address;
+	}
+
+	public void setWalletAddress(String u_wallet_address) {
+		this.u_wallet_address = u_wallet_address;
 	}
 	
 }

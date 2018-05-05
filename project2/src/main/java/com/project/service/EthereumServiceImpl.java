@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.web3j.utils.Convert;
 
 import com.project.dao.EthereumDaoImpl;
+import com.project.model.LoginEntity;
 
 
 @Service
@@ -16,12 +17,12 @@ public class EthereumServiceImpl implements EthereumService {
 	@Autowired
     private EthereumDaoImpl ethereumDao;
 	
-		public BigDecimal getEthValue() {
+		public BigDecimal getEthValue(String walletAddress) {
 			 BigInteger wei = null;
 			 BigDecimal wei2= null;
  
 			 try{
-				 wei = ethereumDao.getEth();
+				 wei = ethereumDao.getEth(walletAddress);
 				 wei2= Convert.fromWei(wei.toString(), Convert.Unit.ETHER);
 				 
 			 } 
@@ -39,4 +40,11 @@ public class EthereumServiceImpl implements EthereumService {
 			return wei2;		 
 		 }
 		
+	public String getWalletAddress(String userId){
+		
+		LoginEntity user = ethereumDao.getLoginById(userId);
+		String walletAddress = user.getWalletAddress();
+		return walletAddress;
+		
+	}
 }
