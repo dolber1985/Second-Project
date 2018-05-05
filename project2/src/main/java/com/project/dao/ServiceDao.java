@@ -1,9 +1,8 @@
 package com.project.dao;
 
-import com.project.model.ServiceEntity;
-
-import java.sql.SQLException;
 import java.util.List;
+
+import com.project.model.ServiceEntity;
 
 public interface ServiceDao {
     //public boolean authenticateUser(LoginEntity loginBean);

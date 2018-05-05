@@ -1,19 +1,15 @@
 package com.project.dao;
 
-import com.project.model.ServiceEntity;
-import com.project.service.ServiceService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.SystemEnvironmentPropertySource;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.project.model.ServiceEntity;
 
 
 
@@ -26,9 +22,8 @@ public class ServiceDaoImpl implements ServiceDao {
     public EntityManager entityManager;
     //private static final String SELECT_ALL = "select * from SERVICES order by sr_name";
     //private static final String SEARCH_BY_NAME = "select * from SERVICES where lower(sr_name) like ? ";
-
-    private static final String SEARCH_BY_KEYWORD = "select * from SERVICES where sr_name LIKE ?";
-    private static final String SELECT_ALL = "select * from SERVICES";
+    //private static final String SEARCH_BY_KEYWORD = "select * from SERVICES where sr_name LIKE ?";
+    //private static final String SELECT_ALL = "select * from SERVICES";
 
 
     public List<ServiceEntity> printServices()  {

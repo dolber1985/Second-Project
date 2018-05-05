@@ -189,7 +189,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <h4 class="modal-title"><c:out value="${service.sr_name}" /></h4>
                                         </div>
                                         <div class="modal-body">
-                                            <p> <c:out value="${service.sr_description}" /></p>
+                                            <p> <c:out value="${service.sr_description}" />
+                                            <br><span>Esercente:</span>
+                            					<c:out value="${service.sr_wellness_center}"/></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button onclick="myFunction()">Acquista</button>
@@ -226,7 +228,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <h4 class="modal-title"><c:out value="${service.sr_name}" /></h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p> <c:out value="${service.sr_description}" /></p>
+                                                    <p><c:out value="${service.sr_description}" />
+                                                    <br><span>Esercente:</span>
+                            						   <c:out value="${service.sr_wellness_center}"/></p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Acquista</button>
@@ -252,6 +256,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <c:out value="${service.sr_name}" />
                             </span><br>
                             <c:out value="${service.sr_type}" />
+                            <br>Durata: <c:out value="${service.sr_time}" /> minuti
+                            
                         </p>
                         <div class="ca-rt">
                             <a href="#" class="item_add"><p class="number item_price"><i> </i>

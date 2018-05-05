@@ -9,8 +9,6 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthGetBalance;
 import org.web3j.protocol.http.HttpService;
 
-import com.project.service.EthereumService;
-
 @Component
 public class EthereumDaoImpl implements EthereumDao {
 
