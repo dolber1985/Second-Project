@@ -15,7 +15,13 @@ public class ServiceServiceImpl implements ServiceService {
 
     public List<ServiceEntity> getServiceService()  {
 
-        List<ServiceEntity> result = serviceDao.printServices();
+        List<ServiceEntity> result = null;
+        try{
+        	result = serviceDao.printServices();
+        } catch (Exception e){
+        	System.out.println("Errore SQL: "+e);
+        }
+        
         return result;
 
     }
@@ -23,14 +29,15 @@ public class ServiceServiceImpl implements ServiceService {
     public List<ServiceEntity> searchKeyWordService(String keyword) {
 
 
-            List<ServiceEntity> result = null;
-            try {
-                result = serviceDao.searchKeyWord(keyword);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return result;
+        List<ServiceEntity> result = null;
+        try {
+            result = serviceDao.searchKeyWord(keyword);
+        } catch (Exception e) {
+        	System.out.println("Errore SQL: "+e);
+            //e.printStackTrace();
         }
+        return result;
+    }
 
 
 }

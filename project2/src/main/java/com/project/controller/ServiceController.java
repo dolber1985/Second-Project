@@ -36,29 +36,6 @@ public class ServiceController {
         //  request.getRequestDispatcher("/service_list.jsp").forward(request, response);
         model.setViewName("service_list");
 
-
-
-
-      /*  String name=request.getParameter("username");
-        String pwd=request.getParameter("password");
-
-        LoginEntity loginBean = new LoginEntity();
-        loginBean.setUsername(name);
-        loginBean.setPassword(pwd);
-
-
-        boolean result = loginService.authenticateUser(loginBean);
-
-        ModelAndView model = new ModelAndView();
-
-        if (result){
-            model.addObject("user", loginBean);
-            model.setViewName("success");
-
-        }else{
-            model.setViewName("error");
-        }*/
-
         return model;
 
     }
@@ -70,9 +47,19 @@ public class ServiceController {
         ModelAndView model = new ModelAndView();
 
         String keyword = request.getParameter("keyword");
-
-        List<ServiceEntity> serviceList = serviceService.searchKeyWordService(keyword);
-
+        
+        List<ServiceEntity> serviceList = null;
+        
+        System.out.println("chiave di ricerca:||"+keyword+"||");
+        //if (keyword!=null &&  keyword.trim().length() > 0){
+        if (keyword.equals("all")){
+        	serviceList = serviceService.getServiceService();
+        	//serviceList = serviceService.searchKeyWordService(keyword);
+        }
+        else {
+        	serviceList = serviceService.searchKeyWordService(keyword);
+        	//serviceList = serviceService.getServiceService();
+        }
 
         if (serviceList != null) {
             model.addObject("services", serviceList);
@@ -85,27 +72,6 @@ public class ServiceController {
         return model;
 
     }
-
-
-
-/*
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            ServiceService serviceService = new ServiceService();
-            List<ServiceBean> serviceList = serviceService.getServiceService();
-            if(serviceList != null){
-                request.setAttribute("services", serviceList); // Will be available as ${products} in JSP
-            }
-            else {
-                request.setAttribute("errorMessage", "Errore connessione database. Riprova più tardi");
-            }
-            request.getRequestDispatcher("/service_list.jsp").forward(request, response);
-        } catch (SQLException e) {
-            throw new ServletException("Cannot obtain services from DB", e);
-        }
-    }
-
 
     /*
 	private List<ServiceBean> serviceList;
