@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutionException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.web3j.exceptions.MessageDecodingException;
 import org.web3j.utils.Convert;
 
 import com.project.dao.EthereumDaoImpl;
@@ -29,6 +30,8 @@ public class EthereumServiceImpl implements EthereumService {
 			 catch (InterruptedException e){
 				 System.out.println("errore interr: "+e);
 			 } catch (ExecutionException e){
+				 System.out.println("errore exec: "+e);
+			 } catch (MessageDecodingException e){
 				 System.out.println("errore exec: "+e);
 			 }
 			 /*catch (InterruptedException|ExecutionException e) {

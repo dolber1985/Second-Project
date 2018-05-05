@@ -33,6 +33,7 @@ public class EthereumController{
         
         ModelAndView model = new ModelAndView();
         request.setAttribute("wei", wei); // Will be available as ${wei} in JSP
+        request.setAttribute("walletAddress", walletAddress);
         model.setViewName("Wallet");
         return model;
     }
