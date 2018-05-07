@@ -50,7 +50,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/prova2" />
 		<property name="username" value="digitalgarage" />
-		<property name="password" value="password" />
+		<property name="password" value="digipassword" />
 	</bean>
 
 	<!-- This transaction manager is appropriate for applications that use a 
