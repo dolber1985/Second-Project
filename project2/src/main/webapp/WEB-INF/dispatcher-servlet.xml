@@ -49,8 +49,8 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/prova2" />
-		<property name="username" value="root" />
-		<property name="password" value="" />
+		<property name="username" value="digitalgarage" />
+		<property name="password" value="password" />
 	</bean>
 
 	<!-- This transaction manager is appropriate for applications that use a 
